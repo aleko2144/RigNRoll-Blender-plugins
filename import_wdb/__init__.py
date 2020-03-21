@@ -249,7 +249,7 @@ def read_wdb_data(context, filepath, use_some_setting):
 						ny = struct.unpack('<f',file.read(4))[0]
 						nz = struct.unpack('<f',file.read(4))[0]
 						
-						file.seek(4, 1)
+						file.seek(4, 1) #diffuse
 						
 						u = struct.unpack('<f',file.read(4))[0]
 						v = struct.unpack('<f',file.read(4))[0]
@@ -669,7 +669,11 @@ def read_wdb_data(context, filepath, use_some_setting):
 						u = struct.unpack('<f',file.read(4))[0]
 						v = struct.unpack('<f',file.read(4))[0]
 						
-						file.seek(36, 1)
+						#file.seek(36, 1)
+						
+						file.seek(12, 1) #uvs1
+						file.seek(12, 1) #uvs2
+						file.seek(12, 1) #uvs3
 						
 						vertices.append((x, y, z))
 						vert_normals.append((nx, ny, nz))
